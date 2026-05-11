@@ -191,19 +191,23 @@ async function load(){
       if(d.sessions&&d.sessions.length>0){
         sessions=d.sessions;
         localStorage.setItem('pau26',JSON.stringify(sessions));
+        dot('ok');
+      } else if(sessions.length>0){
+        await push();
+      } else {
+        dot('ok');
       }
-    }
-    dot('ok');
+    } else { dot('err'); }
   }catch{dot('err');}
   render();
 }
 
 async function push(){
-  if(IS_LOCAL)return;
+  if(IS_LOCAL||sessions.length===0)return;
   dot('busy');
   try{
-    await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessions})});
-    dot('ok');
+    const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessions})});
+    r.ok?dot('ok'):dot('err');
   }catch{dot('err');}
 }
 
