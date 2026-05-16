@@ -13,7 +13,7 @@
 }
 body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;min-height:100vh;padding:24px 20px}
 #app{max-width:1080px;margin:0 auto}
-.header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:16px}
+.header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:16px}
 .header h1{font-size:20px;font-weight:300;letter-spacing:0.06em}
 .header h1 span{color:var(--accent)}
 .header-right{display:flex;align-items:flex-end;gap:14px}
@@ -22,15 +22,20 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .countdown{text-align:right}
 .countdown .days{font-size:32px;font-weight:200;color:var(--accent);line-height:1}
 .countdown .label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:3px}
+.tabs{display:flex;gap:4px;margin-bottom:20px}
+.tab{background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;padding:8px 18px;cursor:pointer;transition:all 0.15s;font-family:inherit;letter-spacing:0.04em;-webkit-tap-highlight-color:transparent}
+.tab:hover{border-color:var(--border2);color:var(--text)}
+.tab.active{background:var(--surface);border-color:var(--accent);color:var(--accent)}
+.page{display:none}.page.active{display:block}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
 .lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:6px}
 .val{font-size:26px;font-weight:200;line-height:1}
 .val small{font-size:12px;color:var(--muted);font-weight:400}
 .charts-row{display:grid;grid-template-columns:240px 1fr;gap:8px;margin-bottom:16px}
-.card,.chart-full,.form-card,.history-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
-.chart-full,.form-card,.history-card{margin-bottom:16px}
-.card h3,.chart-full h3,.form-card h3,.history-card h3{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:14px}
+.card,.chart-full,.form-card,.history-card,.log-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
+.chart-full,.form-card,.history-card,.log-card{margin-bottom:16px}
+.card h3,.chart-full h3,.form-card h3,.history-card h3,.log-card h3{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:14px}
 .subject-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
 .sdot{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted)}
 .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
@@ -54,7 +59,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .sbtn.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
 .btn-add{background:var(--accent);color:#000;border:none;border-radius:8px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;transition:opacity 0.15s;letter-spacing:0.02em;margin-top:12px;-webkit-tap-highlight-color:transparent;min-height:44px;width:100%}
 .btn-add:hover{opacity:0.82}
-.btn-add:disabled{opacity:0.5;cursor:not-allowed}
 .sess-row{display:grid;grid-template-columns:82px 90px 1fr 52px 46px 24px;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:12px}
 .sess-row:last-child{border-bottom:none}
 .dcol{color:var(--muted);font-size:11px}
@@ -67,6 +71,26 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
 .delbtn:hover{color:#c85a5a}
 .empty{text-align:center;color:var(--muted);font-size:12px;padding:28px 0}
 .note-line{font-size:10px;color:#555;padding:0 0 6px 82px;border-bottom:1px solid var(--border)}
+/* ERROR LOG */
+.log-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.log-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;text-align:center}
+.log-stat .lv{font-size:24px;font-weight:200;color:var(--accent)}
+.log-stat .ll{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px}
+.log-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.log-form-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.filter-bar{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.fbtn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:10px;padding:5px 10px;cursor:pointer;transition:all 0.15s;-webkit-tap-highlight-color:transparent;font-family:inherit}
+.fbtn:hover{border-color:var(--border2);color:var(--text)}
+.fbtn.active{border-color:var(--accent);color:var(--accent)}
+.err-row{display:grid;grid-template-columns:100px 1fr auto 24px;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid var(--border)}
+.err-row:last-child{border-bottom:none}
+.err-row.resolved{opacity:0.35}
+.err-concept{font-size:13px;color:var(--text);font-weight:500;margin-bottom:3px}
+.err-why{font-size:11px;color:var(--muted);line-height:1.5}
+.err-meta{font-size:10px;color:var(--muted);margin-bottom:5px}
+.res-btn{background:none;border:1px solid var(--border2);border-radius:5px;color:var(--muted);font-size:10px;padding:4px 8px;cursor:pointer;transition:all 0.15s;white-space:nowrap;font-family:inherit;-webkit-tap-highlight-color:transparent}
+.res-btn:hover{border-color:#6db86d;color:#6db86d}
+.err-row.resolved .res-btn{border-color:#555;color:#555}
 @media(max-width:700px){
   body{padding:14px 13px}
   .header h1{font-size:16px}
@@ -77,8 +101,12 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
   .form-top{grid-template-columns:1fr 1fr}
   .form-top>:nth-child(2){grid-column:1/-1}
   .form-mid{grid-template-columns:1fr}
-  .sess-row{grid-template-columns:68px 84px 1fr 44px 28px}
+  .sess-row{grid-template-columns:68px 80px 1fr 44px 28px}
   .sess-row>.delbtn-wrap{display:none}
+  .log-form{grid-template-columns:1fr}
+  .err-row{grid-template-columns:1fr auto 24px}
+  .err-row>:first-child{grid-column:1/-1}
+  .tabs .tab{padding:8px 12px;font-size:11px}
 }
 @media(max-width:400px){
   .sess-row{grid-template-columns:64px 1fr 40px}
@@ -99,67 +127,104 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'Helvetica
     </div>
   </div>
 
-  <div class="stats-grid">
-    <div class="stat-card"><div class="lbl">Hores totals</div><div class="val" id="s-h">0 <small>h</small></div></div>
-    <div class="stat-card"><div class="lbl">Sessions</div><div class="val" id="s-s">0</div></div>
-    <div class="stat-card"><div class="lbl">Ratxa actual</div><div class="val" id="s-r">0 <small>dies</small></div></div>
-    <div class="stat-card"><div class="lbl">Nota mitja</div><div class="val" id="s-a">— <small>/5</small></div></div>
+  <div class="tabs">
+    <button class="tab active" id="tab-tracker" onclick="switchTab('tracker')">📊 Tracker</button>
+    <button class="tab" id="tab-errors" onclick="switchTab('errors')">⚠️ Log d'errors</button>
   </div>
 
-  <div class="charts-row">
-    <div class="card">
-      <h3>Distribució</h3>
-      <div style="position:relative;height:160px"><canvas id="donut" role="img" aria-label="Hores per assignatura"></canvas></div>
-      <div class="subject-legend" id="leg"></div>
+  <!-- TRACKER -->
+  <div class="page active" id="page-tracker">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="lbl">Hores totals</div><div class="val" id="s-h">0 <small>h</small></div></div>
+      <div class="stat-card"><div class="lbl">Sessions</div><div class="val" id="s-s">0</div></div>
+      <div class="stat-card"><div class="lbl">Ratxa actual</div><div class="val" id="s-r">0 <small>dies</small></div></div>
+      <div class="stat-card"><div class="lbl">Nota mitja</div><div class="val" id="s-a">— <small>/5</small></div></div>
     </div>
-    <div class="card">
-      <h3>Hores per assignatura</h3>
-      <div class="sbars" id="sbars"></div>
-    </div>
-  </div>
-
-  <div class="chart-full">
-    <h3>Hores per dia · últims 21 dies</h3>
-    <div style="position:relative;height:130px"><canvas id="line" role="img" aria-label="Hores per dia"></canvas></div>
-  </div>
-
-  <div class="form-card">
-    <h3>+ Nova sessió</h3>
-    <div class="form-top">
-      <div class="fg"><label>Data</label><input type="date" id="f-date"></div>
-      <div class="fg"><label>Assignatura</label>
-        <select id="f-subj">
-          <option value="">Selecciona...</option>
-          <option>Empresa</option><option>Geografia</option><option>Matemàtiques</option>
-          <option>Castellà</option><option>Català</option><option>Història</option><option>Anglès</option>
-        </select>
+    <div class="charts-row">
+      <div class="card">
+        <h3>Distribució</h3>
+        <div style="position:relative;height:160px"><canvas id="donut"></canvas></div>
+        <div class="subject-legend" id="leg"></div>
       </div>
-      <div class="fg"><label>Hores</label><input type="text" id="f-hours" placeholder="1.5 · 1,5 · 90min" inputmode="decimal" autocomplete="off"></div>
-      <div class="fg"><label>Percepció</label>
-        <div class="score-sel" id="score-sel">
-          <button class="sbtn" data-s="1">1</button><button class="sbtn" data-s="2">2</button>
-          <button class="sbtn" data-s="3">3</button><button class="sbtn" data-s="4">4</button>
-          <button class="sbtn" data-s="5">5</button>
+      <div class="card">
+        <h3>Hores per assignatura</h3>
+        <div class="sbars" id="sbars"></div>
+      </div>
+    </div>
+    <div class="chart-full">
+      <h3>Hores per dia · últims 21 dies</h3>
+      <div style="position:relative;height:130px"><canvas id="line"></canvas></div>
+    </div>
+    <div class="form-card">
+      <h3>+ Nova sessió</h3>
+      <div class="form-top">
+        <div class="fg"><label>Data</label><input type="date" id="f-date"></div>
+        <div class="fg"><label>Assignatura</label>
+          <select id="f-subj"><option value="">Selecciona...</option>
+            <option>Empresa</option><option>Geografia</option><option>Matemàtiques</option>
+            <option>Castellà</option><option>Català</option><option>Història</option><option>Anglès</option>
+          </select>
+        </div>
+        <div class="fg"><label>Hores</label><input type="text" id="f-hours" placeholder="1.5 · 1,5 · 90min" inputmode="decimal" autocomplete="off"></div>
+        <div class="fg"><label>Percepció</label>
+          <div class="score-sel">
+            <button class="sbtn" data-s="1">1</button><button class="sbtn" data-s="2">2</button>
+            <button class="sbtn" data-s="3">3</button><button class="sbtn" data-s="4">4</button>
+            <button class="sbtn" data-s="5">5</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-mid">
-      <div class="fg"><label>Tema/es coberts</label><input type="text" id="f-topics" placeholder="p.ex. VAN, TIR, Payback"></div>
-      <div class="fg"><label>Tipus de tasca</label>
-        <select id="f-type">
-          <option value="T">Teoria (T)</option><option value="EX">Exercicis (EX)</option>
-          <option value="PAU">Exàmens antics (PAU)</option><option value="SIM">Simulacre (SIM)</option>
-          <option value="R">Repàs (R)</option>
-        </select>
+      <div class="form-mid">
+        <div class="fg"><label>Tema/es coberts</label><input type="text" id="f-topics" placeholder="p.ex. VAN, TIR, Payback"></div>
+        <div class="fg"><label>Tipus de tasca</label>
+          <select id="f-type">
+            <option value="T">Teoria (T)</option><option value="EX">Exercicis (EX)</option>
+            <option value="PAU">Exàmens antics (PAU)</option><option value="SIM">Simulacre (SIM)</option>
+            <option value="R">Repàs (R)</option>
+          </select>
+        </div>
       </div>
+      <div class="fg"><label>Notes (opcional)</label><textarea id="f-notes" placeholder="Dubtes, aspectes a repassar..."></textarea></div>
+      <button class="btn-add" onclick="add()">Afegir sessió</button>
     </div>
-    <div class="fg"><label>Notes (opcional)</label><textarea id="f-notes" placeholder="Dubtes, aspectes a repassar..."></textarea></div>
-    <button class="btn-add" id="btn-add" onclick="add()">Afegir sessió</button>
+    <div class="history-card">
+      <h3>Historial de sessions</h3>
+      <div id="hist"></div>
+    </div>
   </div>
 
-  <div class="history-card">
-    <h3>Historial de sessions</h3>
-    <div id="hist"></div>
+  <!-- ERROR LOG -->
+  <div class="page" id="page-errors">
+    <div class="log-stats">
+      <div class="log-stat"><div class="lv" id="e-total">0</div><div class="ll">Errors totals</div></div>
+      <div class="log-stat"><div class="lv" id="e-open" style="color:#c85a5a">0</div><div class="ll">Pendents</div></div>
+      <div class="log-stat"><div class="lv" id="e-resolved" style="color:#6db86d">0</div><div class="ll">Resolts</div></div>
+    </div>
+    <div class="log-card">
+      <h3>+ Nou error</h3>
+      <div class="log-form">
+        <div class="fg"><label>Assignatura</label>
+          <select id="e-subj"><option value="">Selecciona...</option>
+            <option>Empresa</option><option>Geografia</option><option>Matemàtiques</option>
+            <option>Castellà</option><option>Català</option><option>Història</option><option>Anglès</option>
+          </select>
+        </div>
+        <div class="fg"><label>Concepte</label><input type="text" id="e-concept" placeholder="p.ex. Intervals de confiança"></div>
+      </div>
+      <div class="log-form-row">
+        <div class="fg"><label>Per què m'he equivocat</label><input type="text" id="e-why" placeholder="p.ex. Confonia la fórmula amb la de probabilitat"></div>
+        <button class="btn-add" style="margin-top:0;width:auto;padding:10px 20px;white-space:nowrap" onclick="addError()">Afegir</button>
+      </div>
+    </div>
+    <div class="log-card">
+      <h3>Errors registrats</h3>
+      <div class="filter-bar">
+        <button class="fbtn active" data-f="all" onclick="setFilter('all')">Tots</button>
+        <button class="fbtn" data-f="open" onclick="setFilter('open')">Pendents</button>
+        <button class="fbtn" data-f="resolved" onclick="setFilter('resolved')">Resolts</button>
+      </div>
+      <div id="err-list"></div>
+    </div>
   </div>
 </div>
 
@@ -171,7 +236,8 @@ const API='/api/sessions';
 const IS_LOCAL=location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
 
 let sessions=JSON.parse(localStorage.getItem('pau26')||'[]');
-let selScore=0,dC,lC,saving=false;
+let errors=JSON.parse(localStorage.getItem('pau26_errors')||'[]');
+let selScore=0,dC,lC,errFilter='all';
 
 document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
 document.querySelectorAll('.sbtn').forEach(b=>b.addEventListener('click',()=>{
@@ -179,7 +245,15 @@ document.querySelectorAll('.sbtn').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.sbtn').forEach(x=>x.classList.toggle('active',parseInt(x.dataset.s)<=selScore));
 }));
 
-function dot(state){document.getElementById('sync-dot').className='sync-dot '+state;}
+function switchTab(t){
+  document.getElementById('tab-tracker').classList.toggle('active',t==='tracker');
+  document.getElementById('tab-errors').classList.toggle('active',t==='errors');
+  document.getElementById('page-tracker').classList.toggle('active',t==='tracker');
+  document.getElementById('page-errors').classList.toggle('active',t==='errors');
+  if(t==='errors')renderErrors();
+}
+
+function dot(s){document.getElementById('sync-dot').className='sync-dot '+s;}
 
 async function load(){
   if(IS_LOCAL){render();return;}
@@ -191,35 +265,35 @@ async function load(){
       if(d.sessions&&d.sessions.length>0){
         sessions=d.sessions;
         localStorage.setItem('pau26',JSON.stringify(sessions));
+        if(d.errors&&d.errors.length>0){errors=d.errors;localStorage.setItem('pau26_errors',JSON.stringify(errors));}
         dot('ok');
-      } else if(sessions.length>0){
-        await push();
-      } else {
-        dot('ok');
-      }
-    } else { dot('err'); }
+      } else if(sessions.length>0){await push();}
+      else{dot('ok');}
+    } else {dot('err');}
   }catch{dot('err');}
   render();
 }
 
 async function push(){
-  if(IS_LOCAL||sessions.length===0)return;
+  if(IS_LOCAL)return;
   dot('busy');
   try{
-    const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessions})});
+    const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessions,errors})});
     r.ok?dot('ok'):dot('err');
   }catch{dot('err');}
 }
 
 function save(){
   localStorage.setItem('pau26',JSON.stringify(sessions));
+  localStorage.setItem('pau26_errors',JSON.stringify(errors));
   push();
 }
 
 function add(){
   const date=document.getElementById('f-date').value;
   const subj=document.getElementById('f-subj').value;
-  const raw=document.getElementById("f-hours").value.trim().replace(",","."); const hours=raw.endsWith("min")?parseFloat(raw)/60:parseFloat(raw);
+  const raw=document.getElementById('f-hours').value.trim().replace(',','.');
+  const hours=raw.endsWith('min')?parseFloat(raw)/60:parseFloat(raw);
   const topics=document.getElementById('f-topics').value.trim();
   const type=document.getElementById('f-type').value;
   const notes=document.getElementById('f-notes').value.trim();
@@ -232,16 +306,61 @@ function add(){
 
 function del(id){sessions=sessions.filter(s=>s.id!==id);save();render();}
 
+function addError(){
+  const subj=document.getElementById('e-subj').value;
+  const concept=document.getElementById('e-concept').value.trim();
+  const why=document.getElementById('e-why').value.trim();
+  if(!subj||!concept){alert('Omple assignatura i concepte.');return;}
+  errors.unshift({id:Date.now(),date:new Date().toISOString().split('T')[0],subj,concept,why,resolved:false});
+  save();renderErrors();
+  ['e-subj','e-concept','e-why'].forEach(id=>document.getElementById(id).value='');
+}
+
+function toggleResolved(id){
+  const e=errors.find(e=>e.id===id);if(e)e.resolved=!e.resolved;
+  save();renderErrors();
+}
+
+function delError(id){errors=errors.filter(e=>e.id!==id);save();renderErrors();}
+
+function setFilter(f){
+  errFilter=f;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active',b.dataset.f===f));
+  renderErrors();
+}
+
+function renderErrors(){
+  document.getElementById('e-total').textContent=errors.length;
+  document.getElementById('e-open').textContent=errors.filter(e=>!e.resolved).length;
+  document.getElementById('e-resolved').textContent=errors.filter(e=>e.resolved).length;
+  let filtered=errors;
+  if(errFilter==='open')filtered=errors.filter(e=>!e.resolved);
+  if(errFilter==='resolved')filtered=errors.filter(e=>e.resolved);
+  const list=document.getElementById('err-list');
+  if(!filtered.length){list.innerHTML='<div class="empty">Cap error registrat.</div>';return;}
+  list.innerHTML=filtered.map(e=>`
+    <div class="err-row${e.resolved?' resolved':''}">
+      <div>
+        <div class="err-meta">${e.date}</div>
+        <span class="badge" style="background:${COL[e.subj]}1a;color:${COL[e.subj]}">${e.subj}</span>
+      </div>
+      <div>
+        <div class="err-concept">${e.concept}</div>
+        ${e.why?`<div class="err-why">${e.why}</div>`:''}
+      </div>
+      <button class="res-btn" onclick="toggleResolved(${e.id})">${e.resolved?'↩ Reobrir':'✓ Resolt'}</button>
+      <button class="delbtn" onclick="delError(${e.id})">×</button>
+    </div>`).join('');
+}
+
 function getH(){const h={};SUBJ.forEach(s=>h[s]=0);sessions.forEach(s=>{if(h[s.subj]!==undefined)h[s.subj]+=s.hours;});return h;}
 
 function render(){
   const exam=new Date('2026-06-09');const today=new Date();today.setHours(0,0,0,0);
   document.getElementById('cd').textContent=Math.max(0,Math.round((exam-today)/86400000));
-
   const h=getH();const total=Object.values(h).reduce((a,b)=>a+b,0);
   document.getElementById('s-h').innerHTML=(Math.round(total*10)/10)+'<small> h</small>';
   document.getElementById('s-s').textContent=sessions.length;
-
   const dates=[...new Set(sessions.map(s=>s.date))].sort();
   let streak=0;
   if(dates.length){
@@ -254,7 +373,6 @@ function render(){
   const sc=sessions.filter(s=>s.score>0);
   const avg=sc.length?(sc.reduce((a,s)=>a+s.score,0)/sc.length):null;
   document.getElementById('s-a').innerHTML=(avg?Math.round(avg*10)/10:'—')+'<small> /5</small>';
-
   const active=SUBJ.filter(s=>h[s]>0);
   const dc=document.getElementById('donut');
   if(dC)dC.destroy();
@@ -264,15 +382,12 @@ function render(){
     dC=new Chart(dc,{type:'doughnut',data:{labels:active,datasets:[{data:active.map(s=>h[s]),backgroundColor:active.map(s=>COL[s]),borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.label}: ${Math.round(c.parsed*10)/10}h (${Math.round(c.parsed/total*100)}%)`}}}}});
     document.getElementById('leg').innerHTML=active.map(s=>`<div class="sdot"><div class="dot" style="background:${COL[s]}"></div>${s.substring(0,3).toUpperCase()}</div>`).join('');
   }
-
   const maxH=Math.max(...Object.values(h),0.1);
   document.getElementById('sbars').innerHTML=SUBJ.map(s=>`<div class="sbar-row"><div class="sbar-label" title="${s}">${s}</div><div class="sbar-track"><div class="sbar-fill" style="width:${Math.round(h[s]/maxH*100)}%;background:${COL[s]}"></div></div><div class="sbar-h">${Math.round(h[s]*10)/10}h</div></div>`).join('');
-
   const ll=[],ld=[];
   for(let i=20;i>=0;i--){const d=new Date(Date.now()-i*86400000);ll.push(d.toLocaleDateString('ca',{day:'numeric',month:'short'}));ld.push(Math.round(sessions.filter(s=>s.date===d.toISOString().split('T')[0]).reduce((a,s)=>a+s.hours,0)*10)/10);}
   const lc=document.getElementById('line');if(lC)lC.destroy();
   lC=new Chart(lc,{type:'line',data:{labels:ll,datasets:[{data:ld,borderColor:'#c8a45a',backgroundColor:'rgba(200,164,90,0.07)',borderWidth:1.5,pointRadius:3,pointBackgroundColor:'#c8a45a',fill:true,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#555',font:{size:10},maxTicksLimit:7,maxRotation:0},grid:{color:'rgba(255,255,255,0.035)'},border:{color:'rgba(255,255,255,0.07)'}},y:{min:0,ticks:{color:'#555',font:{size:10},stepSize:1},grid:{color:'rgba(255,255,255,0.035)'},border:{color:'rgba(255,255,255,0.07)'}}}}});
-
   const hist=document.getElementById('hist');
   if(!sessions.length){hist.innerHTML='<div class="empty">Cap sessió registrada.</div>';return;}
   const stars=n=>!n?'<span style="color:#444;font-size:10px">—</span>':Array.from({length:5},(_,i)=>`<div class="star${i<n?' on':''}"></div>`).join('');
